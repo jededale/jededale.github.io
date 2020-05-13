@@ -1,0 +1,230 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141114029-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-141114029-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Site Desciption -->
+    
+    <meta name="description" content="benedikt mayer | portfolio">
+    
+    <!-- keywords -->
+    <meta name="keywords" content="Benedikt Mayer, benediktmayer, data science, human computer interaction, haskell, software development">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="http://localhost:35730/static/img/hololens.jpg" type="image/x-icon" />
+    <!-- Blog Title -->
+    
+    <title>benedikt mayer | portfolio</title>
+    
+    <!-- Property Metas -->
+    
+    <meta property="og:title" content="benedikt mayer | portfolio" />
+    
+    <meta property="og:site_name" content="benedikt mayer | portfolio" />
+    <meta property="og:image" content="http://localhost:35730static/img/portrait.JPG">
+    <meta property="og:url" content="http://localhost:35730">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="http://localhost:35730/android.html">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="http://localhost:35730/static/css/navigation.css">
+    <link rel="stylesheet" href="http://localhost:35730/static/css/general.css">
+    <link rel="stylesheet" href="http://localhost:35730/static/css/main.css">
+    <link rel="stylesheet" href="http://localhost:35730/static/css/footer.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <span aria-label="home" id="js-home">
+        <a class="logo" href="http://localhost:35730">benedikt mayer</a>
+    </span>
+    <span aria-label="mobile menu" class="navbar-toggle" id="js-navbar-toggle">
+        <i class="fas fa-bars"></i>
+    </span>
+    <ul class="main-nav" id="js-menu">
+        <li>
+            <a class="nav-links" href="http://localhost:35730/about.html">about</a>
+        </li>
+        <li class="dropdown">
+            <span class="nav-links" id="js-navbar-projects-toggle">projects</span>
+            <ul class="dropdown-content" id="js-projects-menu">
+                
+                <li>
+                    <a class="nav-links" href="http://localhost:35730/android.html">android</a>
+                </li>
+                
+                <li>
+                    <a class="nav-links" href="http://localhost:35730/radio.html">radio</a>
+                </li>
+                
+                <li>
+                    <a class="nav-links" href="http://localhost:35730/thesis.html">thesis</a>
+                </li>
+                
+            </ul>
+        </li>
+        <li>
+            <a class="nav-links" href="http://localhost:35730/static/doc/Resume.pdf">resume</a>
+        </li>
+        <li>
+            <a aria-label="link to my Github profile" class="nav-links" href="https://www.github.com/benedikt-mayer" target="_blank" rel="noreferrer">
+                <i aria-hidden="true" class="fab fa-github"></i> benedikt-mayer
+            </a>
+        </li>
+        <hr class="nav-separator">
+    </ul>
+</nav>
+
+    <!-- Post Header -->
+<main>
+    <div class="box heading">
+            <h1>
+                
+                Campus Explorer
+                
+            </h1>
+    </div>
+    <div class="box content">
+        <div class="article">
+<div class="paragraph">
+<section id="which-lectures-and-free-rooms-are-nearby" class="text">
+<h2>Which Lectures and Free Rooms are nearby?</h2>
+<p> </p>
+<p>With this question in mind, we built a unique Android app, focussing on an easy and accessible way to get location aware information.</p>
+<p> </p>
+<p>In the app, the user can search any buildings around them for running courses as well as free rooms.</p>
+<p> </p>
+<p>To get this information, we crawled the <a href="https://lsf.verwaltung.uni-muenchen.de/qisserver/rds?state=user&amp;type=5&amp;language=en">course catalog</a> for all running courses and matched this information with the building data from the <a href="https://www.uni-muenchen.de/raumfinder/index.html#/">LMU Raumfinder app</a>.</p>
+<p> </p>
+<p>The frame for this project was a <a href="http://www.mobile.ifi.lmu.de/lehrveranstaltungen/msp-ws1819/">lab course on location aware apps</a> with the <a href="http://www.mobile.ifi.lmu.de/">chair of mobile and distributed systems</a>.</p>
+</section>
+<div class="image">
+<p><img src="../static/img/android.jpg" alt="Two screens: image it shows a map with buildings marked by pins, right it shows a building plan with rooms marked by pins." /><br />
+</p>
+<div class="caption">
+<p>The explore and find stages.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="image">
+<p><img src="../static/img/android_stack.jpg" alt="The icons for our tech stack: Spring, REST, mongoDB, Jaunt, Kotlin." /><br />
+</p>
+<div class="caption">
+<p>Our tech stack.</p>
+</div>
+</div>
+<section id="tech-stack" class="text">
+<h2>Tech Stack</h2>
+<p> </p>
+<p>The project includes a backend written in <a href="https://spring.io/">Java Spring</a> and accesses a Mongo Database with the crawled data we gained via the crawling library <a href="https://jaunt-api.com/">Jaunt</a> from the course catalog. Frontend-wise, we used Kotlin for Android, connecting to the backend via a Rest API interface.</p>
+<p> </p>
+<p>All of our code can be found on Github and is available under the MIT License: The backend on <a href="https://github.com/beneseifert/campusExplorerServer">campusExplorerServer</a> and the frontend on <a href="https://github.com/alexanderperzl/campusExplorerClient">campusExplorerClient</a>.</p>
+<p> </p>
+<p>Using server-side filtering, the client only receives the data it needs and can then efficiently and locally apply their filtering, e.g. what type of courses and faculties they are interested in. Additionally, the app caches all room plans to save time when revisiting a building.</p>
+</section>
+</div>
+<div class="paragraph">
+<section id="app-workflow" class="text">
+<h2>App Workflow</h2>
+<p> </p>
+<p>When the user first opens up the app, they are presented with a quick intro into the main features of the app: explore, find and filter.</p>
+<p> </p>
+<p>In the explore stage, the user can explore the area around them and find university buildings. After selecting one of the buildings, the user finds a floor plan on which they can find all the lectures or free rooms.</p>
+<p> </p>
+<p>Here, they can filter the time by adjusting a slider and receive more information about a specific room by selecting the marker on the room plan.</p>
+</section>
+<div class="image">
+<p><img src="../static/img/android_intro.jpg" alt="Three intro screens describing the explore, find, filter model." /><br />
+</p>
+<div class="caption">
+<p>The intro: explore, find, filter.</p>
+</div>
+</div>
+</div>
+</div>
+        
+        <div id="imageModal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content">
+        <img id="imageModalImage">
+    </div>
+    <div class="modal-caption">
+        <p id="imageModalCaption"></p>
+    </div>
+    <div class="modal-close">
+        <span>
+            <i class="fas fa-times"></i>
+        </span>
+    </div>
+</div>
+    </div>
+
+</main>
+    
+    <!-- Footer -->
+<footer>
+    <div class="wrapper">
+        <div class="grid-item">
+            <ul>
+                
+                <li>
+                    <a aria-label="link to my Github profile" href="https://github.com/benedikt-mayer" target="_blank" rel="noreferrer">
+                        <i aria-hidden="true" class="fab fa-2x fa-github"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a aria-label="link to write me an email" href="mailto:" data-name="benedikt_mayer" data-domain="outlook" data-tld="de" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;">
+                        <i aria-hidden="true" class="fas fa-2x fa-envelope"></i>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a aria-label="link to my LinkedIn profile" href="https://linkedin.com/in/benedikt-mayer-7ab235132" target="_blank" rel="noreferrer">
+                        <i aria-hidden="true" class="fab fa-2x fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+
+        <div class="grid-item">
+            <p>
+                Copyright &copy; Benedikt Mayer 2019.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <p>
+                Site generated by
+                <a href="http://jaspervdj.be/hakyll">Hakyll</a> with <i aria-label="love" class="fas fa-heart"></i>.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Styles -->
+<script src="http://localhost:35730/static/js/scripts.js"></script>
+<!-- Icons -->
+<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" type="text/css">
+</body>
+
+</html>
