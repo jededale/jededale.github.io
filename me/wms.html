@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My history with window managers</title>
+    <link rel="stylesheet" href="../css/default.css" type="text/css" media="screen" title="default">
+    <link rel="stylesheet" href="../css/syntax.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Troels Henriksen's piece of the web.  Mostly about programming.">
+    <meta name="keywords" content="Braintwist, Brainfuck, Lisp, Common Lisp Troels Henriksen, Brainfork, Esoteric programming language, programming, Haskell, functional programming, Futhark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="header">
+      <div class="superHeader">
+
+        <div class="right">
+          <span class="doNotDisplay">Related sites:</span>
+          <ul>
+            <li><a href="https://github.com/Athas/sigkill.dk">github</a></li>
+            
+            <li><a href=".././me/wms.md">source</a></li>
+            
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="midHeader">
+        <h1 class="headerTitle"><a href="../">SIGKILL <span id="headerSubTitle">-9</span></a></h1>
+      </div>
+
+      <div class="subHeader">
+        <ul class="menu0"><li><a href="../blog/">blog/</a></li><li><a href="../hacks/">hacks/</a></li><li><a href="../links.html">links</a></li><li><a href="../me/" class="thisPage">me/</a></li><li><a href="../programs/">programs/</a></li><li><a href="../projects/">projects/</a></li><li><a href="../writings/">writings/</a></li></ul><ul class="menu1"><li><a href="../me/config.html">config</a></li><li><a href="../me/wms.html" class="thisPage">wms</a></li></ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <h1 id="my-history-with-window-managers"><a href="#my-history-with-window-managers" id="my-history-with-window-managers-link" class="titlelink" title="my-history-with-window-managers">My history with window managers</a></h1>
+<p>Sometime in prehistory, I installed Mandrake Linux on my computer, but I didn’t stick with it. I suppose it ran KDE of some sort. When I eventually did switch to GNU/Linux in August of 2003, I initially did not use a window manager at all. The reason is that I had chosen to install Debian Woody, which failed to bring up X. Thus, my first Linux experience was using the console and learning <code>vi</code> to, in vain, try to fix the XFree86 configuration file. Much later I realised that the issue was that Debian Woody’s <code>nv</code> driver was not compatible with my NVIDIA graphics card. Switching to the <code>vesa</code> driver (or installing the proprietary NVIDIA driver) would have fixed it.</p>
+<p>Instead I switched to <a href="http://www.knoppix.org/">Knoppix</a>, which was mostly a live CD, but could also be installed to a disk - and in this case, was essentially Debian with better hardware detection. It came with <a href="https://kde.org/">KDE</a>, which was then what I used. Eventually I switched to <a href="https://www.gnome.org/">GNOME</a> 2.2. I don’t remember the reason - maybe that the upcoming GNOME 2.4 was fairly hyped at the time.</p>
+<p>After that I went a bit back and forth (I distinctly remember trying to learn Qt programming in April of 2004), but eventually switched to the tiling window manager <a href="https://en.wikipedia.org/wiki/Ion_(window_manager)">Ion</a> window manager (this was before the <a href="https://lists.freebsd.org/pipermail/freebsd-ports/2007-December/045494.html">author became grumpy and abandoned it</a>. I don’t remember exactly why, but I was probably chasing obscure software to establish hacker street cred. I never liked its model much though, and eventually found <a href="https://www.nongnu.org/ratpoison/">ratpoison</a>, a window manager inspired by <a href="https://www.gnu.org/software/screen/">GNU Screen</a>. It felt much less magical and predictable than Ion, and I used that for a great many years. Since I was a <a href="http://wiki.c2.com/?SmugLispWeenie">smug Lisp weenie</a> in those years, I also tried out <a href="https://stumpwm.github.io/">StumpWM</a> - a ratpoison successor written in Common Lisp - but I had some early problems with it losing window focus, so I stuck to ratpoison.</p>
+<p>As happens to all hackers, I eventually wanted to write a window manager of my own. The result, from around 2009, was <a href="../files/mousetoxin.pdf">Mousetoxin</a>, a clone of ratpoison written in <a href="https://en.wikipedia.org/wiki/Literate_programming">literate Haskell</a> (if you check the Mousetoxin link, you’ll find it’s a PDF - the actual source has been lost). It worked quite well, and I used it for a couple of years. About a year later, I did switch to <a href="https://xmonad.org/">xmonad</a> to fit in with the rest of the Haskell community, although I did end up <a href="../projects/sindre">writing an entire programming language</a> just so I could write a few tools (like <a href="../projects/gsmenu">gsmenu</a>) for interacting with it. It made sense at the time, but in retrospect it was a bit silly.</p>
+<p>I used xmonad for years, right up until curiosity made me switch over to GNOME 3 around 2016. Most of my work was (and is) done in a full screen Emacs session, and GNOME supported that well enough, while having fewer bugs than xmonad. EVentually I did grow tired of being a <a href="https://en.wikipedia.org/wiki/WIMP_(computing)">WIMP</a> and in June of 2019, I switched to <a href="https://swaywm.org/">sway</a>, after I figured out <a href="../blog/2019-06-30-how-to-make-sway-act-like-ratpoison.html">how to make it act like ratpoison</a>. I rediscovered just how pleasant a nice tiling window manager can be. It may also help that the user base of tiling window managers is somewhat larger than it used to be, so the troubleshooting is more well distributed.</p>
+<p><em>To be continued…</em></p>
+    </div>
+
+    <div id="footer">
+      <a href="http://jaspervdj.be/hakyll/index.html" id="hakyllLink">Powered by Hakyll</a>
+
+      <span id="dates">
+        
+        
+      </span>
+    </div>
+  </body>
+</html>

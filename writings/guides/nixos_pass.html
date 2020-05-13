@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Using `pass` on NixOS</title>
+    <link rel="stylesheet" href="../../css/default.css" type="text/css" media="screen" title="default">
+    <link rel="stylesheet" href="../../css/syntax.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Troels Henriksen's piece of the web.  Mostly about programming.">
+    <meta name="keywords" content="Braintwist, Brainfuck, Lisp, Common Lisp Troels Henriksen, Brainfork, Esoteric programming language, programming, Haskell, functional programming, Futhark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="header">
+      <div class="superHeader">
+
+        <div class="right">
+          <span class="doNotDisplay">Related sites:</span>
+          <ul>
+            <li><a href="https://github.com/Athas/sigkill.dk">github</a></li>
+            
+            <li><a href="../.././writings/guides/nixos_pass.md">source</a></li>
+            
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="midHeader">
+        <h1 class="headerTitle"><a href="../../">SIGKILL <span id="headerSubTitle">-9</span></a></h1>
+      </div>
+
+      <div class="subHeader">
+        <ul class="menu0"><li><a href="../../blog/">blog/</a></li><li><a href="../../hacks/">hacks/</a></li><li><a href="../../links.html">links</a></li><li><a href="../../me/">me/</a></li><li><a href="../../programs/">programs/</a></li><li><a href="../../projects/">projects/</a></li><li><a href="../../writings/" class="thisPage">writings/</a></li></ul><ul class="menu1"><li><a href="../../writings/braces.html">braces</a></li><li><a href="../../writings/flights.html">flights</a></li><li><a href="../../writings/fountain_pens.html">fountain_pens</a></li><li><a href="../../writings/guides/" class="thisPage">guides/</a></li><li><a href="../../writings/languages.html">languages</a></li><li><a href="../../writings/primes.html">primes</a></li><li><a href="../../writings/scripting.html">scripting</a></li><li><a href="../../writings/semicolons.html">semicolons</a></li></ul><ul class="menu2"><li><a href="../../writings/guides/gateway.html">gateway</a></li><li><a href="../../writings/guides/hakyll.html">hakyll</a></li><li><a href="../../writings/guides/mime.html">mime</a></li><li><a href="../../writings/guides/nixos_pass.html" class="thisPage">nixos_pass</a></li><li><a href="../../writings/guides/plan_9_tools.html">plan_9_tools</a></li></ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <h1 id="using-pass-on-nixos"><a href="#using-pass-on-nixos" id="using-pass-on-nixos-link" class="titlelink" title="using-pass-on-nixos">Using <code>pass</code> on NixOS</a></h1>
+<p>On NixOS, you may find that <code>pass</code>, the <a href="https://www.passwordstore.org/">standard unix password manager</a> fails with a cryptic error when it tries to decrypt passwords:</p>
+<pre><code>$ pass show foo
+gpg: decryption failed: No secret key</code></pre>
+<p>The problem is actually that <code>pass</code> cannot figure out how to ask you for the master password.</p>
+<p>One workaround is to use <code>gpg</code> to manually decrypt the password:</p>
+<pre><code>$ nix-shell -p gnupg --run 'gpg --decrypt --pinentry-mode=loopback &lt; ~/.password-store/foo.gpg'</code></pre>
+<p>But this sucks. A beter solution is to install <code>pinentry-curses</code> (put it in your <code>systemPackages</code> in your NixOS configuration), and then modify <code>$HOME/.gnupg/gpg-agent.conf</code> to contain the following:</p>
+<pre><code>pinentry-program /run/current-system/sw/bin/pinentry-curses</code></pre>
+<p>You may need to reload the running <code>gpg-agent</code> to make it pick up the change:</p>
+<pre><code>$ gpgconf --reload gpg-agent</code></pre>
+    </div>
+
+    <div id="footer">
+      <a href="http://jaspervdj.be/hakyll/index.html" id="hakyllLink">Powered by Hakyll</a>
+
+      <span id="dates">
+        
+        
+      </span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FOSDEM 2017 trip report</title>
+    <link rel="stylesheet" href="../css/default.css" type="text/css" media="screen" title="default">
+    <link rel="stylesheet" href="../css/syntax.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Troels Henriksen's piece of the web.  Mostly about programming.">
+    <meta name="keywords" content="Braintwist, Brainfuck, Lisp, Common Lisp Troels Henriksen, Brainfork, Esoteric programming language, programming, Haskell, functional programming, Futhark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="header">
+      <div class="superHeader">
+
+        <div class="right">
+          <span class="doNotDisplay">Related sites:</span>
+          <ul>
+            <li><a href="https://github.com/Athas/sigkill.dk">github</a></li>
+            
+            <li><a href=".././blog/2017-02-06-fosdem.md">source</a></li>
+            
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="midHeader">
+        <h1 class="headerTitle"><a href="../">SIGKILL <span id="headerSubTitle">-9</span></a></h1>
+      </div>
+
+      <div class="subHeader">
+        <ul class="menu0"><li><a href="../blog/" class="thisPage">blog/</a></li><li><a href="../hacks/">hacks/</a></li><li><a href="../links.html">links</a></li><li><a href="../me/">me/</a></li><li><a href="../programs/">programs/</a></li><li><a href="../projects/">projects/</a></li><li><a href="../writings/">writings/</a></li></ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <h1>FOSDEM 2017 trip report</h1>
+<div class="postmetadata">
+    Posted on February  6, 2017
+</div>
+
+<p>I like hacking and I like free and open-source software. For this reason, I try to attend <a href="https://fosdem.org">FOSDEM</a> as often as I can. FOSDEM is the largest gathering of free software hackers and advocates in Europe; possibly in the world. Since my first attendance in 2011, I wanted to do a presentation at FOSDEM. When I embarked on my PhD in 2014, one of my few concrete aspirations was to eventually present my work there. This I finally felt that I had produced something of interest to a wider audience, and the organisers of the <a href="https://fosdem.org/2017/schedule/track/hpc,_big_data_and_data_science/">track on high-performance computing</a> were kind enough to accept my talk proposal. Of course, my presentation was not the only event at FOSDEM, and in this post I will reproduce some of the notes I jotted down with my trusty <a href="http://sigkill.dk/writings/fountain_pens.html">fountain pen</a>.</p>
+<p>FOSDEM spans two days and contains over 500 talks spread over dozens of tracks. I like to move a bit around; rarely watching more than one talk from the same track in a row. Unfortunately, FOSDEM attendence has grown so huge that this is a decreasingly viable strateg. While there is usually enough free space to drop in on a <a href="https://fosdem.org/2017/schedule/event/guixhurd/">presentation on porting a package manager to GNU Hurd</a>, other rooms were contiously occupied by the same people for every talk. In some cases, the dynamics seemed decent. While the HPC track had an hour-long queue, a good portion of the audience left between every talk, leading to a natural audience rotation. In contrast the Community and Perl tracks seemed to exhibit little rotation. I do not know how to solve this problem, or whether it is a problem at all, but track organisers should consider whether the situation risks limiting the growth of their communities, as fewer people get exposed.</p>
+<p>Fortunately, FOSDEM provides real-time streaming of all events. Unfortunately, internet access at the venue was not always good enough for streaming to be viable. I suppose I could have spent the entire conference in my hotel room, eating Belgian waffles and watching online streams.</p>
+<p>On to the presentations: the first one I saw was on Singularity. No, not the <a href="https://en.wikipedia.org/wiki/Technological_singularity">technological singularity</a>. Also not the <a href="https://en.wikipedia.org/wiki/Singularity_%28operating_system%29">Singularity operating system</a>. <em>This</em> <a href="http://singularity.lbl.gov/">Singularity</a> is a container system for HPC applications, somewhat like Docker. The idea is to have reduced dependence on the global environment, letting admins be more fearless with upgrades, and programmers more able to take advantage of specific library versions and configurations. I wonder if it could also help with scientific reproducibility in computer science, which is a pet peeve of mine. Another important thing I learned was that the HPC track had no voice amplification, and that I would have to speak loudly. I think I managed to accomplish this (judging from feedback from the audience), but not all speakers made that observation. On the other hand, I forgot to put on the microphone used for recording sound for the stream, so when the recording of my video finally comes online, it will have no audio for the first minute or so.</p>
+<p>There was a good <a href="https://fosdem.org/2017/schedule/event/open_power/">main track talk on OpenPOWER</a> given by a person who really knew how to give a presentation. Part of the charm of FOSDEM are the unpolished and awkward, but highly enthusiastic, presentations given by hackers unaccustomed to public speaking, but sometimes it can be inspiring to see someone who really knows what they are doing. OpenPOWER is a wide (relatively speaking) industry initiative based on making specs and patents on IBMs POWER architecture freely available. One particular motivation is the fact that <a href="https://en.wikipedia.org/wiki/Intel_Active_Management_Technology">nasty and unverifiable things</a> lie hidden inside modern Intel CPUs. The supposed advantage of OpenPOWER over other open hardware designs is the scale of existing infrastructure: POWER has already been manufactured and used in production for many years, and is a high-performance and battle-tested design. We’ll see whether it pans out. If OpenPOWER can challenge Intel’s dominance in the data centre - as seems likely at very large scales - then that would be a goodthing. Monocultures benefit nobody.</p>
+<p>I also attended a talk on <a href="https://fosdem.org/2017/schedule/event/gpupfb/">doing radio stuff on a GPU</a>. The presenter was recent, but I don’t really know anywhere near enough about software-defined radio to understand the problem he was solving. I <em>did</em> get the impression that the GPU code was not fully optimised, so perhaps it would be a nice use case for Futhark.</p>
+<p>A hacker from Twitter gave a <a href="https://fosdem.org/2017/schedule/event/graal/">talk</a> about his experiences with replacing the default Java JIT compiler (C2) with the Graal JIT compiler. They seem to perform about the same. The most memorable moment was when the presenter mentioned <em>“the benefits of Java”</em> in the context of compiler construction.</p>
+<p>I listened to a hacker from Freifunk talk about <a href="https://fosdem.org/2017/schedule/event/%5Bfreifunk%5D_access_is_a_human_right/">making Internet access available to refugees</a> via mesh networking. The most interesting thing here was an audience question on what it would take to make Internet access a <em>de jure</em> human right. I don’t think much activism is needed on this front - given time, it will soon be <em>obvious</em> that access to information is a necessity for a dignified human life, and the Internet will be the only practical source. It is unlikely that <em>uncensored</em> access will ever become a human right, however.</p>
+<p>I have noticed a lot of recent talk about RISC-V, a new and fully open Instruction Set Architecture (ISA), so of course I had to attend <a href="https://fosdem.org/2017/schedule/event/riscv/">the talk on the subject</a>. Most importantly, I got confirmation on the pronounciation (it’s “V” as in “five”, because it’s the fifth RISC architecture from Berkeley). RISC-V is completely general-purpose, built to be scaleable from micro-processors to supercomputers, via an extensible ISA with various standardised extensions. Industry seems broad, with for example NVIDIA participating. Maybe they are hoping to replace their current use of ARM chips and save on licensing fees? I will likely be involved with running the operatings systems course at <a href="http://diku.dk">DIKU</a>, and adopting RISC-V is something we should seriously consider. The main problem is that the privileged instructions ISA extension has not yet been standardised, as it is necessary for running an operating system, but someone ported Linux already, so how incomplete can it be?</p>
+<p>Due to the massive number of attendents at FOSDEM (more than 8000), the customary beer event at the <a href="http://www.deliriumcafe.be/">Delirium Café</a> tends to be extremely crowded. So much so that I don’t really find it enjoyable. This year, it turned out that the absinthe bar next door, <a href="http://www.florisbar.com/">Floris</a>, had plenty of empty space. It was my first time drinking absinthe, but I actually quite enjoyed it. I will definitely try that again. I will also definitely try to attend FOSDEM again next year.</p>
+
+    </div>
+
+    <div id="footer">
+      <a href="http://jaspervdj.be/hakyll/index.html" id="hakyllLink">Powered by Hakyll</a>
+
+      <span id="dates">
+        
+        
+      </span>
+    </div>
+  </body>
+</html>

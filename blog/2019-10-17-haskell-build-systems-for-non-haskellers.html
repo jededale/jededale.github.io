@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Haskell build systems for non-Haskellers</title>
+    <link rel="stylesheet" href="../css/default.css" type="text/css" media="screen" title="default">
+    <link rel="stylesheet" href="../css/syntax.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Troels Henriksen's piece of the web.  Mostly about programming.">
+    <meta name="keywords" content="Braintwist, Brainfuck, Lisp, Common Lisp Troels Henriksen, Brainfork, Esoteric programming language, programming, Haskell, functional programming, Futhark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="header">
+      <div class="superHeader">
+
+        <div class="right">
+          <span class="doNotDisplay">Related sites:</span>
+          <ul>
+            <li><a href="https://github.com/Athas/sigkill.dk">github</a></li>
+            
+            <li><a href=".././blog/2019-10-17-haskell-build-systems-for-non-haskellers.md">source</a></li>
+            
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="midHeader">
+        <h1 class="headerTitle"><a href="../">SIGKILL <span id="headerSubTitle">-9</span></a></h1>
+      </div>
+
+      <div class="subHeader">
+        <ul class="menu0"><li><a href="../blog/" class="thisPage">blog/</a></li><li><a href="../hacks/">hacks/</a></li><li><a href="../links.html">links</a></li><li><a href="../me/">me/</a></li><li><a href="../programs/">programs/</a></li><li><a href="../projects/">projects/</a></li><li><a href="../writings/">writings/</a></li></ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <h1>Haskell build systems for non-Haskellers</h1>
+<div class="postmetadata">
+    Posted on October 17, 2019
+</div>
+
+<p>The Haskell build system war seems to have quieted down a bit, with both <a href="http://hackage.haskell.org/package/cabal-install"><code>cabal</code></a> and <a href="http://hackage.haskell.org/package/cabal-install"><code>stack</code></a> seeing wide use. I have my own preference (cards on the table: it’s <code>stack</code> for the moment), but I feel my reasons were not represented well in the flame wars. I figure I should write them down.</p>
+<p>It is my impression that many Haskell programmers fall into two groups:</p>
+<ol type="1">
+<li><p>Those who mainly produce libraries for distribution on Hackage, which must work with many different dependencies and versions of GHC.</p></li>
+<li><p>Those who mainly write Haskell applications that they also host or deploy themselves, and who tend to freeze their environment.</p></li>
+</ol>
+<p>(This is a gross simplification, bear with me.)</p>
+<p>I am mostly related to the second group, but with some differences: my main project is <a href="https://futhark-lang.org">a Haskell program</a> whose audience is users who do not much care that it is implemented in Haskell. While I try to make binary packages available, it is still important that people can easily download and compile the source code themselves.</p>
+<p>For most C programs, this has historically been straightforward. You obtain the code, run <code>./configure &amp;&amp; make</code> (or the <code>cmake</code> equivalent) and that’s it. This is because most C programs have either no dependencies, or just a few popular ones that are likely to be available via the OS package manager. Further, C is stable enough that it tends not to matter exactly which version of the C compiler you are using.</p>
+<p>For both good and ill, Haskell is a more unstable language, and programs tend to have dozens of dependencies. In practice, if I want my users (who may not care about Haskell!) to have a reasonable chance of successfully compiling my program, I must ensure that they use exactly the same compiler and library versions as I do.</p>
+<p>This was <code>stack</code>’s major advantage for me. While <code>cabal freeze</code> can be used to pin dependencies for <code>cabal</code>, you cannot also pin the versions of GHC and tools such as <a href="https://www.haskell.org/happy/"><code>happy</code></a>. While I can certainly document the required versions, providing instructions on how to install them on a large variety of operating systems is no easy task, particularly when the obvious solutions (e.g <code>apt install ghc happy</code>) are likely not to be correct. In contrast, it is very easy for me to just point at <a href="https://docs.haskellstack.org/en/stable/README/#how-to-install"><code>stack</code>s installation instructions</a> and let them worry about making it work on whatever strange operating systems people come up with.</p>
+<p>There is also a particularly tricky category of users: people who already have some old or defective Haskell setup that they obtained for a course or idly experiment and since forgot about. Debugging build errors due to interactions with these remnants can be quite maddening.</p>
+<p>Modern <code>cabal</code> has solved most of these problems well. With <a href="https://cabal.readthedocs.io/en/latest/nix-local-build-overview.html">Nix-style local builds</a>, most tools and libraries needed will be installed automatically and isolated from anything else going on with the system. It is, however, still on the user to install <em>two</em> programs themselves: <code>cabal</code> and the <em>right</em> version of GHC.</p>
+<p>While most package managers should already contain an adequately new version of <code>cabal</code> (or will soon in any case), the situation with GHC is more complicated. Some systems, like Ubuntu LTS, will contain a version that is too old. Others, like <a href="https://brew.sh">Homebrew</a>, may contain one that is too new! This is because it tends to take a couple of months after a GHC release before all of my dependencies have been updated. There is of course <a href="https://www.haskell.org/ghcup/"><code>ghcup</code></a>, which makes it easy to obtain a specific version of GHC, but I must then maintain human-readable documentation on how to do so (and my users must manually keep track of when it changes). In contrast, <code>stack build</code> will automatically work the same for my users as for me, which means I will likely notice any problems quickly.</p>
+<p>In short, while my fondness for <code>cabal</code> has grown significantly for my own uses, I still find <code>stack</code> superior for the task of giving my source code to users who do not particularly care that it is written in Haskell. My philosophy is that the installation instructions are a crucial part of a program’s user interface.</p>
+
+    </div>
+
+    <div id="footer">
+      <a href="http://jaspervdj.be/hakyll/index.html" id="hakyllLink">Powered by Hakyll</a>
+
+      <span id="dates">
+        
+        
+      </span>
+    </div>
+  </body>
+</html>
